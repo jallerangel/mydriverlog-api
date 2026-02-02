@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+//////////////////////
+// ENUMS
+//////////////////////
+
+enum ExpenseCategory {
+  GASOLINE
+  FOOD
+  MAINTENANCE
+  TOLL
+  OTHER
+}
+
+enum IncomeSource {
+  MANUAL
+  UBER
+  DIDI
+  INDRIVER
+}
+
+enum RideStatus {
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum GoalPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+//////////////////////
+// MODELS
+//////////////////////
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+
+  rideSessions RideSession[]
+  expenses     Expense[]
+  incomes      Income[]
+  goals        Goal[]
+}
+
+model RideSession {
+  id        String     @id @default(uuid())
+  userId   String
+  source   IncomeSource
+  status   RideStatus
+  startedAt DateTime
+  endedAt   DateTime?
+  createdAt DateTime   @default(now())
+
+  user     User       @relation(fields: [userId], references: [id])
+  incomes  Income[]
+  expenses Expense[]
+}
+
+model Income {
+  id            String       @id @default(uuid())
+  userId        String
+  rideSessionId String?
+  source        IncomeSource
+  amount        Int
+  occurredAt    DateTime
+  createdAt     DateTime     @default(now())
+
+  user        User         @relation(fields: [userId], references: [id])
+  rideSession RideSession? @relation(fields: [rideSessionId], references: [id])
+}
+
+model Expense {
+  id            String          @id @default(uuid())
+  userId        String
+  rideSessionId String?
+  category      ExpenseCategory
+  description   String?
+  amount        Int
+  isOperational Boolean         @default(true)
+  occurredAt    DateTime
+  createdAt     DateTime        @default(now())
+
+  user        User         @relation(fields: [userId], references: [id])
+  rideSession RideSession? @relation(fields: [rideSessionId], references: [id])
+}
+
+model Goal {
+  id        String        @id @default(uuid())
+  userId   String
+  title    String
+  target   Int
+  priority GoalPriority
+  dueDate  DateTime
+  createdAt DateTime     @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
