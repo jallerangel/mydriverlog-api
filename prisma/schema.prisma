@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "./generated/prisma"
 }
 
 datasource db {
@@ -23,11 +24,25 @@ enum IncomeSource {
   UBER
   DIDI
   INDRIVER
+  PICAP
 }
 
-enum RideStatus {
+enum PaymentMethod {
+  CASH
+  NEQUI
+  DAVIPLATA
+  BANCOLOMBIA
+  OTHER
+}
+
+enum ShiftStatus {
   ACTIVE
   COMPLETED
+}
+
+enum TransactionStatus {
+  PENDING
+  CONFIRMED
   CANCELLED
 }
 
@@ -44,64 +59,75 @@ enum GoalPriority {
 model User {
   id        String   @id @default(uuid())
   email     String   @unique
+  password  String   
   name      String?
   createdAt DateTime @default(now())
 
-  rideSessions RideSession[]
-  expenses     Expense[]
-  incomes      Income[]
-  goals        Goal[]
+  workShifts WorkShift[]
+  expenses   Expense[]
+  incomes    Income[]
+  goals      Goal[]
 }
 
-model RideSession {
-  id        String     @id @default(uuid())
-  userId   String
-  source   IncomeSource
-  status   RideStatus
-  startedAt DateTime
+model WorkShift {
+  id        String      @id @default(uuid())
+  userId    String
+  status    ShiftStatus @default(ACTIVE)
+  startedAt DateTime    @default(now())
   endedAt   DateTime?
-  createdAt DateTime   @default(now())
+  
+  initialOdometer Int?
+  finalOdometer   Int?
 
-  user     User       @relation(fields: [userId], references: [id])
+  createdAt DateTime    @default(now())
+
+  user     User      @relation(fields: [userId], references: [id])
   incomes  Income[]
   expenses Expense[]
 }
 
 model Income {
-  id            String       @id @default(uuid())
-  userId        String
-  rideSessionId String?
-  source        IncomeSource
-  amount        Int
-  occurredAt    DateTime
-  createdAt     DateTime     @default(now())
+  id          String        @id @default(uuid())
+  userId      String
+  workShiftId String?
+  
+  source        IncomeSource  
+  paymentMethod PaymentMethod 
+  
+  status      TransactionStatus @default(CONFIRMED) 
+  
+  amount      Int
+  occurredAt  DateTime      @default(now())
+  createdAt   DateTime      @default(now())
 
-  user        User         @relation(fields: [userId], references: [id])
-  rideSession RideSession? @relation(fields: [rideSessionId], references: [id])
+  user      User       @relation(fields: [userId], references: [id])
+  workShift WorkShift? @relation(fields: [workShiftId], references: [id])
 }
 
 model Expense {
-  id            String          @id @default(uuid())
-  userId        String
-  rideSessionId String?
-  category      ExpenseCategory
+  id          String          @id @default(uuid())
+  userId      String
+  workShiftId String?
+  category    ExpenseCategory
+  paymentMethod PaymentMethod?
+  
   description   String?
   amount        Int
   isOperational Boolean         @default(true)
-  occurredAt    DateTime
+  occurredAt    DateTime        @default(now())
   createdAt     DateTime        @default(now())
 
-  user        User         @relation(fields: [userId], references: [id])
-  rideSession RideSession? @relation(fields: [rideSessionId], references: [id])
+  user      User       @relation(fields: [userId], references: [id])
+  workShift WorkShift? @relation(fields: [workShiftId], references: [id])
 }
 
 model Goal {
-  id        String        @id @default(uuid())
-  userId   String
-  title    String
-  target   Int
-  priority GoalPriority
-  dueDate  DateTime
+  id        String       @id @default(uuid())
+  userId    String
+  title     String
+  target    Int
+  priority  GoalPriority
+  dueDate   DateTime
   createdAt DateTime     @default(now())
 
   user User @relation(fields: [userId], references: [id])
