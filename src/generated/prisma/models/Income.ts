@@ -37,7 +37,7 @@ export type IncomeSumAggregateOutputType = {
 export type IncomeMinAggregateOutputType = {
   id: string | null
   userId: string | null
-  workShiftId: string | null
+  rideSesionId: string | null
   source: $Enums.IncomeSource | null
   paymentMethod: $Enums.PaymentMethod | null
   status: $Enums.TransactionStatus | null
@@ -49,7 +49,7 @@ export type IncomeMinAggregateOutputType = {
 export type IncomeMaxAggregateOutputType = {
   id: string | null
   userId: string | null
-  workShiftId: string | null
+  rideSesionId: string | null
   source: $Enums.IncomeSource | null
   paymentMethod: $Enums.PaymentMethod | null
   status: $Enums.TransactionStatus | null
@@ -61,7 +61,7 @@ export type IncomeMaxAggregateOutputType = {
 export type IncomeCountAggregateOutputType = {
   id: number
   userId: number
-  workShiftId: number
+  rideSesionId: number
   source: number
   paymentMethod: number
   status: number
@@ -83,7 +83,7 @@ export type IncomeSumAggregateInputType = {
 export type IncomeMinAggregateInputType = {
   id?: true
   userId?: true
-  workShiftId?: true
+  rideSesionId?: true
   source?: true
   paymentMethod?: true
   status?: true
@@ -95,7 +95,7 @@ export type IncomeMinAggregateInputType = {
 export type IncomeMaxAggregateInputType = {
   id?: true
   userId?: true
-  workShiftId?: true
+  rideSesionId?: true
   source?: true
   paymentMethod?: true
   status?: true
@@ -107,7 +107,7 @@ export type IncomeMaxAggregateInputType = {
 export type IncomeCountAggregateInputType = {
   id?: true
   userId?: true
-  workShiftId?: true
+  rideSesionId?: true
   source?: true
   paymentMethod?: true
   status?: true
@@ -206,7 +206,7 @@ export type IncomeGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 export type IncomeGroupByOutputType = {
   id: string
   userId: string
-  workShiftId: string | null
+  rideSesionId: string | null
   source: $Enums.IncomeSource
   paymentMethod: $Enums.PaymentMethod
   status: $Enums.TransactionStatus
@@ -241,7 +241,7 @@ export type IncomeWhereInput = {
   NOT?: Prisma.IncomeWhereInput | Prisma.IncomeWhereInput[]
   id?: Prisma.StringFilter<"Income"> | string
   userId?: Prisma.StringFilter<"Income"> | string
-  workShiftId?: Prisma.StringNullableFilter<"Income"> | string | null
+  rideSesionId?: Prisma.StringNullableFilter<"Income"> | string | null
   source?: Prisma.EnumIncomeSourceFilter<"Income"> | $Enums.IncomeSource
   paymentMethod?: Prisma.EnumPaymentMethodFilter<"Income"> | $Enums.PaymentMethod
   status?: Prisma.EnumTransactionStatusFilter<"Income"> | $Enums.TransactionStatus
@@ -249,13 +249,13 @@ export type IncomeWhereInput = {
   occurredAt?: Prisma.DateTimeFilter<"Income"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Income"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  workShift?: Prisma.XOR<Prisma.WorkShiftNullableScalarRelationFilter, Prisma.WorkShiftWhereInput> | null
+  rideSesion?: Prisma.XOR<Prisma.RideSesionNullableScalarRelationFilter, Prisma.RideSesionWhereInput> | null
 }
 
 export type IncomeOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  workShiftId?: Prisma.SortOrderInput | Prisma.SortOrder
+  rideSesionId?: Prisma.SortOrderInput | Prisma.SortOrder
   source?: Prisma.SortOrder
   paymentMethod?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -263,7 +263,7 @@ export type IncomeOrderByWithRelationInput = {
   occurredAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
-  workShift?: Prisma.WorkShiftOrderByWithRelationInput
+  rideSesion?: Prisma.RideSesionOrderByWithRelationInput
 }
 
 export type IncomeWhereUniqueInput = Prisma.AtLeast<{
@@ -272,7 +272,7 @@ export type IncomeWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.IncomeWhereInput[]
   NOT?: Prisma.IncomeWhereInput | Prisma.IncomeWhereInput[]
   userId?: Prisma.StringFilter<"Income"> | string
-  workShiftId?: Prisma.StringNullableFilter<"Income"> | string | null
+  rideSesionId?: Prisma.StringNullableFilter<"Income"> | string | null
   source?: Prisma.EnumIncomeSourceFilter<"Income"> | $Enums.IncomeSource
   paymentMethod?: Prisma.EnumPaymentMethodFilter<"Income"> | $Enums.PaymentMethod
   status?: Prisma.EnumTransactionStatusFilter<"Income"> | $Enums.TransactionStatus
@@ -280,13 +280,13 @@ export type IncomeWhereUniqueInput = Prisma.AtLeast<{
   occurredAt?: Prisma.DateTimeFilter<"Income"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Income"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  workShift?: Prisma.XOR<Prisma.WorkShiftNullableScalarRelationFilter, Prisma.WorkShiftWhereInput> | null
+  rideSesion?: Prisma.XOR<Prisma.RideSesionNullableScalarRelationFilter, Prisma.RideSesionWhereInput> | null
 }, "id">
 
 export type IncomeOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  workShiftId?: Prisma.SortOrderInput | Prisma.SortOrder
+  rideSesionId?: Prisma.SortOrderInput | Prisma.SortOrder
   source?: Prisma.SortOrder
   paymentMethod?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -306,7 +306,7 @@ export type IncomeScalarWhereWithAggregatesInput = {
   NOT?: Prisma.IncomeScalarWhereWithAggregatesInput | Prisma.IncomeScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Income"> | string
   userId?: Prisma.StringWithAggregatesFilter<"Income"> | string
-  workShiftId?: Prisma.StringNullableWithAggregatesFilter<"Income"> | string | null
+  rideSesionId?: Prisma.StringNullableWithAggregatesFilter<"Income"> | string | null
   source?: Prisma.EnumIncomeSourceWithAggregatesFilter<"Income"> | $Enums.IncomeSource
   paymentMethod?: Prisma.EnumPaymentMethodWithAggregatesFilter<"Income"> | $Enums.PaymentMethod
   status?: Prisma.EnumTransactionStatusWithAggregatesFilter<"Income"> | $Enums.TransactionStatus
@@ -324,13 +324,13 @@ export type IncomeCreateInput = {
   occurredAt?: Date | string
   createdAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutIncomesInput
-  workShift?: Prisma.WorkShiftCreateNestedOneWithoutIncomesInput
+  rideSesion?: Prisma.RideSesionCreateNestedOneWithoutIncomesInput
 }
 
 export type IncomeUncheckedCreateInput = {
   id?: string
   userId: string
-  workShiftId?: string | null
+  rideSesionId?: string | null
   source: $Enums.IncomeSource
   paymentMethod: $Enums.PaymentMethod
   status?: $Enums.TransactionStatus
@@ -348,13 +348,13 @@ export type IncomeUpdateInput = {
   occurredAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutIncomesNestedInput
-  workShift?: Prisma.WorkShiftUpdateOneWithoutIncomesNestedInput
+  rideSesion?: Prisma.RideSesionUpdateOneWithoutIncomesNestedInput
 }
 
 export type IncomeUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  workShiftId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rideSesionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source?: Prisma.EnumIncomeSourceFieldUpdateOperationsInput | $Enums.IncomeSource
   paymentMethod?: Prisma.EnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod
   status?: Prisma.EnumTransactionStatusFieldUpdateOperationsInput | $Enums.TransactionStatus
@@ -366,7 +366,7 @@ export type IncomeUncheckedUpdateInput = {
 export type IncomeCreateManyInput = {
   id?: string
   userId: string
-  workShiftId?: string | null
+  rideSesionId?: string | null
   source: $Enums.IncomeSource
   paymentMethod: $Enums.PaymentMethod
   status?: $Enums.TransactionStatus
@@ -388,7 +388,7 @@ export type IncomeUpdateManyMutationInput = {
 export type IncomeUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  workShiftId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rideSesionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source?: Prisma.EnumIncomeSourceFieldUpdateOperationsInput | $Enums.IncomeSource
   paymentMethod?: Prisma.EnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod
   status?: Prisma.EnumTransactionStatusFieldUpdateOperationsInput | $Enums.TransactionStatus
@@ -410,7 +410,7 @@ export type IncomeOrderByRelationAggregateInput = {
 export type IncomeCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  workShiftId?: Prisma.SortOrder
+  rideSesionId?: Prisma.SortOrder
   source?: Prisma.SortOrder
   paymentMethod?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -426,7 +426,7 @@ export type IncomeAvgOrderByAggregateInput = {
 export type IncomeMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  workShiftId?: Prisma.SortOrder
+  rideSesionId?: Prisma.SortOrder
   source?: Prisma.SortOrder
   paymentMethod?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -438,7 +438,7 @@ export type IncomeMaxOrderByAggregateInput = {
 export type IncomeMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  workShiftId?: Prisma.SortOrder
+  rideSesionId?: Prisma.SortOrder
   source?: Prisma.SortOrder
   paymentMethod?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -493,45 +493,45 @@ export type IncomeUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.IncomeScalarWhereInput | Prisma.IncomeScalarWhereInput[]
 }
 
-export type IncomeCreateNestedManyWithoutWorkShiftInput = {
-  create?: Prisma.XOR<Prisma.IncomeCreateWithoutWorkShiftInput, Prisma.IncomeUncheckedCreateWithoutWorkShiftInput> | Prisma.IncomeCreateWithoutWorkShiftInput[] | Prisma.IncomeUncheckedCreateWithoutWorkShiftInput[]
-  connectOrCreate?: Prisma.IncomeCreateOrConnectWithoutWorkShiftInput | Prisma.IncomeCreateOrConnectWithoutWorkShiftInput[]
-  createMany?: Prisma.IncomeCreateManyWorkShiftInputEnvelope
+export type IncomeCreateNestedManyWithoutRideSesionInput = {
+  create?: Prisma.XOR<Prisma.IncomeCreateWithoutRideSesionInput, Prisma.IncomeUncheckedCreateWithoutRideSesionInput> | Prisma.IncomeCreateWithoutRideSesionInput[] | Prisma.IncomeUncheckedCreateWithoutRideSesionInput[]
+  connectOrCreate?: Prisma.IncomeCreateOrConnectWithoutRideSesionInput | Prisma.IncomeCreateOrConnectWithoutRideSesionInput[]
+  createMany?: Prisma.IncomeCreateManyRideSesionInputEnvelope
   connect?: Prisma.IncomeWhereUniqueInput | Prisma.IncomeWhereUniqueInput[]
 }
 
-export type IncomeUncheckedCreateNestedManyWithoutWorkShiftInput = {
-  create?: Prisma.XOR<Prisma.IncomeCreateWithoutWorkShiftInput, Prisma.IncomeUncheckedCreateWithoutWorkShiftInput> | Prisma.IncomeCreateWithoutWorkShiftInput[] | Prisma.IncomeUncheckedCreateWithoutWorkShiftInput[]
-  connectOrCreate?: Prisma.IncomeCreateOrConnectWithoutWorkShiftInput | Prisma.IncomeCreateOrConnectWithoutWorkShiftInput[]
-  createMany?: Prisma.IncomeCreateManyWorkShiftInputEnvelope
+export type IncomeUncheckedCreateNestedManyWithoutRideSesionInput = {
+  create?: Prisma.XOR<Prisma.IncomeCreateWithoutRideSesionInput, Prisma.IncomeUncheckedCreateWithoutRideSesionInput> | Prisma.IncomeCreateWithoutRideSesionInput[] | Prisma.IncomeUncheckedCreateWithoutRideSesionInput[]
+  connectOrCreate?: Prisma.IncomeCreateOrConnectWithoutRideSesionInput | Prisma.IncomeCreateOrConnectWithoutRideSesionInput[]
+  createMany?: Prisma.IncomeCreateManyRideSesionInputEnvelope
   connect?: Prisma.IncomeWhereUniqueInput | Prisma.IncomeWhereUniqueInput[]
 }
 
-export type IncomeUpdateManyWithoutWorkShiftNestedInput = {
-  create?: Prisma.XOR<Prisma.IncomeCreateWithoutWorkShiftInput, Prisma.IncomeUncheckedCreateWithoutWorkShiftInput> | Prisma.IncomeCreateWithoutWorkShiftInput[] | Prisma.IncomeUncheckedCreateWithoutWorkShiftInput[]
-  connectOrCreate?: Prisma.IncomeCreateOrConnectWithoutWorkShiftInput | Prisma.IncomeCreateOrConnectWithoutWorkShiftInput[]
-  upsert?: Prisma.IncomeUpsertWithWhereUniqueWithoutWorkShiftInput | Prisma.IncomeUpsertWithWhereUniqueWithoutWorkShiftInput[]
-  createMany?: Prisma.IncomeCreateManyWorkShiftInputEnvelope
+export type IncomeUpdateManyWithoutRideSesionNestedInput = {
+  create?: Prisma.XOR<Prisma.IncomeCreateWithoutRideSesionInput, Prisma.IncomeUncheckedCreateWithoutRideSesionInput> | Prisma.IncomeCreateWithoutRideSesionInput[] | Prisma.IncomeUncheckedCreateWithoutRideSesionInput[]
+  connectOrCreate?: Prisma.IncomeCreateOrConnectWithoutRideSesionInput | Prisma.IncomeCreateOrConnectWithoutRideSesionInput[]
+  upsert?: Prisma.IncomeUpsertWithWhereUniqueWithoutRideSesionInput | Prisma.IncomeUpsertWithWhereUniqueWithoutRideSesionInput[]
+  createMany?: Prisma.IncomeCreateManyRideSesionInputEnvelope
   set?: Prisma.IncomeWhereUniqueInput | Prisma.IncomeWhereUniqueInput[]
   disconnect?: Prisma.IncomeWhereUniqueInput | Prisma.IncomeWhereUniqueInput[]
   delete?: Prisma.IncomeWhereUniqueInput | Prisma.IncomeWhereUniqueInput[]
   connect?: Prisma.IncomeWhereUniqueInput | Prisma.IncomeWhereUniqueInput[]
-  update?: Prisma.IncomeUpdateWithWhereUniqueWithoutWorkShiftInput | Prisma.IncomeUpdateWithWhereUniqueWithoutWorkShiftInput[]
-  updateMany?: Prisma.IncomeUpdateManyWithWhereWithoutWorkShiftInput | Prisma.IncomeUpdateManyWithWhereWithoutWorkShiftInput[]
+  update?: Prisma.IncomeUpdateWithWhereUniqueWithoutRideSesionInput | Prisma.IncomeUpdateWithWhereUniqueWithoutRideSesionInput[]
+  updateMany?: Prisma.IncomeUpdateManyWithWhereWithoutRideSesionInput | Prisma.IncomeUpdateManyWithWhereWithoutRideSesionInput[]
   deleteMany?: Prisma.IncomeScalarWhereInput | Prisma.IncomeScalarWhereInput[]
 }
 
-export type IncomeUncheckedUpdateManyWithoutWorkShiftNestedInput = {
-  create?: Prisma.XOR<Prisma.IncomeCreateWithoutWorkShiftInput, Prisma.IncomeUncheckedCreateWithoutWorkShiftInput> | Prisma.IncomeCreateWithoutWorkShiftInput[] | Prisma.IncomeUncheckedCreateWithoutWorkShiftInput[]
-  connectOrCreate?: Prisma.IncomeCreateOrConnectWithoutWorkShiftInput | Prisma.IncomeCreateOrConnectWithoutWorkShiftInput[]
-  upsert?: Prisma.IncomeUpsertWithWhereUniqueWithoutWorkShiftInput | Prisma.IncomeUpsertWithWhereUniqueWithoutWorkShiftInput[]
-  createMany?: Prisma.IncomeCreateManyWorkShiftInputEnvelope
+export type IncomeUncheckedUpdateManyWithoutRideSesionNestedInput = {
+  create?: Prisma.XOR<Prisma.IncomeCreateWithoutRideSesionInput, Prisma.IncomeUncheckedCreateWithoutRideSesionInput> | Prisma.IncomeCreateWithoutRideSesionInput[] | Prisma.IncomeUncheckedCreateWithoutRideSesionInput[]
+  connectOrCreate?: Prisma.IncomeCreateOrConnectWithoutRideSesionInput | Prisma.IncomeCreateOrConnectWithoutRideSesionInput[]
+  upsert?: Prisma.IncomeUpsertWithWhereUniqueWithoutRideSesionInput | Prisma.IncomeUpsertWithWhereUniqueWithoutRideSesionInput[]
+  createMany?: Prisma.IncomeCreateManyRideSesionInputEnvelope
   set?: Prisma.IncomeWhereUniqueInput | Prisma.IncomeWhereUniqueInput[]
   disconnect?: Prisma.IncomeWhereUniqueInput | Prisma.IncomeWhereUniqueInput[]
   delete?: Prisma.IncomeWhereUniqueInput | Prisma.IncomeWhereUniqueInput[]
   connect?: Prisma.IncomeWhereUniqueInput | Prisma.IncomeWhereUniqueInput[]
-  update?: Prisma.IncomeUpdateWithWhereUniqueWithoutWorkShiftInput | Prisma.IncomeUpdateWithWhereUniqueWithoutWorkShiftInput[]
-  updateMany?: Prisma.IncomeUpdateManyWithWhereWithoutWorkShiftInput | Prisma.IncomeUpdateManyWithWhereWithoutWorkShiftInput[]
+  update?: Prisma.IncomeUpdateWithWhereUniqueWithoutRideSesionInput | Prisma.IncomeUpdateWithWhereUniqueWithoutRideSesionInput[]
+  updateMany?: Prisma.IncomeUpdateManyWithWhereWithoutRideSesionInput | Prisma.IncomeUpdateManyWithWhereWithoutRideSesionInput[]
   deleteMany?: Prisma.IncomeScalarWhereInput | Prisma.IncomeScalarWhereInput[]
 }
 
@@ -563,12 +563,12 @@ export type IncomeCreateWithoutUserInput = {
   amount: number
   occurredAt?: Date | string
   createdAt?: Date | string
-  workShift?: Prisma.WorkShiftCreateNestedOneWithoutIncomesInput
+  rideSesion?: Prisma.RideSesionCreateNestedOneWithoutIncomesInput
 }
 
 export type IncomeUncheckedCreateWithoutUserInput = {
   id?: string
-  workShiftId?: string | null
+  rideSesionId?: string | null
   source: $Enums.IncomeSource
   paymentMethod: $Enums.PaymentMethod
   status?: $Enums.TransactionStatus
@@ -609,7 +609,7 @@ export type IncomeScalarWhereInput = {
   NOT?: Prisma.IncomeScalarWhereInput | Prisma.IncomeScalarWhereInput[]
   id?: Prisma.StringFilter<"Income"> | string
   userId?: Prisma.StringFilter<"Income"> | string
-  workShiftId?: Prisma.StringNullableFilter<"Income"> | string | null
+  rideSesionId?: Prisma.StringNullableFilter<"Income"> | string | null
   source?: Prisma.EnumIncomeSourceFilter<"Income"> | $Enums.IncomeSource
   paymentMethod?: Prisma.EnumPaymentMethodFilter<"Income"> | $Enums.PaymentMethod
   status?: Prisma.EnumTransactionStatusFilter<"Income"> | $Enums.TransactionStatus
@@ -618,7 +618,7 @@ export type IncomeScalarWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Income"> | Date | string
 }
 
-export type IncomeCreateWithoutWorkShiftInput = {
+export type IncomeCreateWithoutRideSesionInput = {
   id?: string
   source: $Enums.IncomeSource
   paymentMethod: $Enums.PaymentMethod
@@ -629,7 +629,7 @@ export type IncomeCreateWithoutWorkShiftInput = {
   user: Prisma.UserCreateNestedOneWithoutIncomesInput
 }
 
-export type IncomeUncheckedCreateWithoutWorkShiftInput = {
+export type IncomeUncheckedCreateWithoutRideSesionInput = {
   id?: string
   userId: string
   source: $Enums.IncomeSource
@@ -640,35 +640,35 @@ export type IncomeUncheckedCreateWithoutWorkShiftInput = {
   createdAt?: Date | string
 }
 
-export type IncomeCreateOrConnectWithoutWorkShiftInput = {
+export type IncomeCreateOrConnectWithoutRideSesionInput = {
   where: Prisma.IncomeWhereUniqueInput
-  create: Prisma.XOR<Prisma.IncomeCreateWithoutWorkShiftInput, Prisma.IncomeUncheckedCreateWithoutWorkShiftInput>
+  create: Prisma.XOR<Prisma.IncomeCreateWithoutRideSesionInput, Prisma.IncomeUncheckedCreateWithoutRideSesionInput>
 }
 
-export type IncomeCreateManyWorkShiftInputEnvelope = {
-  data: Prisma.IncomeCreateManyWorkShiftInput | Prisma.IncomeCreateManyWorkShiftInput[]
+export type IncomeCreateManyRideSesionInputEnvelope = {
+  data: Prisma.IncomeCreateManyRideSesionInput | Prisma.IncomeCreateManyRideSesionInput[]
   skipDuplicates?: boolean
 }
 
-export type IncomeUpsertWithWhereUniqueWithoutWorkShiftInput = {
+export type IncomeUpsertWithWhereUniqueWithoutRideSesionInput = {
   where: Prisma.IncomeWhereUniqueInput
-  update: Prisma.XOR<Prisma.IncomeUpdateWithoutWorkShiftInput, Prisma.IncomeUncheckedUpdateWithoutWorkShiftInput>
-  create: Prisma.XOR<Prisma.IncomeCreateWithoutWorkShiftInput, Prisma.IncomeUncheckedCreateWithoutWorkShiftInput>
+  update: Prisma.XOR<Prisma.IncomeUpdateWithoutRideSesionInput, Prisma.IncomeUncheckedUpdateWithoutRideSesionInput>
+  create: Prisma.XOR<Prisma.IncomeCreateWithoutRideSesionInput, Prisma.IncomeUncheckedCreateWithoutRideSesionInput>
 }
 
-export type IncomeUpdateWithWhereUniqueWithoutWorkShiftInput = {
+export type IncomeUpdateWithWhereUniqueWithoutRideSesionInput = {
   where: Prisma.IncomeWhereUniqueInput
-  data: Prisma.XOR<Prisma.IncomeUpdateWithoutWorkShiftInput, Prisma.IncomeUncheckedUpdateWithoutWorkShiftInput>
+  data: Prisma.XOR<Prisma.IncomeUpdateWithoutRideSesionInput, Prisma.IncomeUncheckedUpdateWithoutRideSesionInput>
 }
 
-export type IncomeUpdateManyWithWhereWithoutWorkShiftInput = {
+export type IncomeUpdateManyWithWhereWithoutRideSesionInput = {
   where: Prisma.IncomeScalarWhereInput
-  data: Prisma.XOR<Prisma.IncomeUpdateManyMutationInput, Prisma.IncomeUncheckedUpdateManyWithoutWorkShiftInput>
+  data: Prisma.XOR<Prisma.IncomeUpdateManyMutationInput, Prisma.IncomeUncheckedUpdateManyWithoutRideSesionInput>
 }
 
 export type IncomeCreateManyUserInput = {
   id?: string
-  workShiftId?: string | null
+  rideSesionId?: string | null
   source: $Enums.IncomeSource
   paymentMethod: $Enums.PaymentMethod
   status?: $Enums.TransactionStatus
@@ -685,12 +685,12 @@ export type IncomeUpdateWithoutUserInput = {
   amount?: Prisma.IntFieldUpdateOperationsInput | number
   occurredAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workShift?: Prisma.WorkShiftUpdateOneWithoutIncomesNestedInput
+  rideSesion?: Prisma.RideSesionUpdateOneWithoutIncomesNestedInput
 }
 
 export type IncomeUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workShiftId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rideSesionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source?: Prisma.EnumIncomeSourceFieldUpdateOperationsInput | $Enums.IncomeSource
   paymentMethod?: Prisma.EnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod
   status?: Prisma.EnumTransactionStatusFieldUpdateOperationsInput | $Enums.TransactionStatus
@@ -701,7 +701,7 @@ export type IncomeUncheckedUpdateWithoutUserInput = {
 
 export type IncomeUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workShiftId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rideSesionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source?: Prisma.EnumIncomeSourceFieldUpdateOperationsInput | $Enums.IncomeSource
   paymentMethod?: Prisma.EnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod
   status?: Prisma.EnumTransactionStatusFieldUpdateOperationsInput | $Enums.TransactionStatus
@@ -710,7 +710,7 @@ export type IncomeUncheckedUpdateManyWithoutUserInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type IncomeCreateManyWorkShiftInput = {
+export type IncomeCreateManyRideSesionInput = {
   id?: string
   userId: string
   source: $Enums.IncomeSource
@@ -721,7 +721,7 @@ export type IncomeCreateManyWorkShiftInput = {
   createdAt?: Date | string
 }
 
-export type IncomeUpdateWithoutWorkShiftInput = {
+export type IncomeUpdateWithoutRideSesionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   source?: Prisma.EnumIncomeSourceFieldUpdateOperationsInput | $Enums.IncomeSource
   paymentMethod?: Prisma.EnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod
@@ -732,7 +732,7 @@ export type IncomeUpdateWithoutWorkShiftInput = {
   user?: Prisma.UserUpdateOneRequiredWithoutIncomesNestedInput
 }
 
-export type IncomeUncheckedUpdateWithoutWorkShiftInput = {
+export type IncomeUncheckedUpdateWithoutRideSesionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   source?: Prisma.EnumIncomeSourceFieldUpdateOperationsInput | $Enums.IncomeSource
@@ -743,7 +743,7 @@ export type IncomeUncheckedUpdateWithoutWorkShiftInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type IncomeUncheckedUpdateManyWithoutWorkShiftInput = {
+export type IncomeUncheckedUpdateManyWithoutRideSesionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   source?: Prisma.EnumIncomeSourceFieldUpdateOperationsInput | $Enums.IncomeSource
@@ -759,7 +759,7 @@ export type IncomeUncheckedUpdateManyWithoutWorkShiftInput = {
 export type IncomeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  workShiftId?: boolean
+  rideSesionId?: boolean
   source?: boolean
   paymentMethod?: boolean
   status?: boolean
@@ -767,13 +767,13 @@ export type IncomeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   occurredAt?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Income$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Income$rideSesionArgs<ExtArgs>
 }, ExtArgs["result"]["income"]>
 
 export type IncomeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  workShiftId?: boolean
+  rideSesionId?: boolean
   source?: boolean
   paymentMethod?: boolean
   status?: boolean
@@ -781,13 +781,13 @@ export type IncomeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   occurredAt?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Income$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Income$rideSesionArgs<ExtArgs>
 }, ExtArgs["result"]["income"]>
 
 export type IncomeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  workShiftId?: boolean
+  rideSesionId?: boolean
   source?: boolean
   paymentMethod?: boolean
   status?: boolean
@@ -795,13 +795,13 @@ export type IncomeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   occurredAt?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Income$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Income$rideSesionArgs<ExtArgs>
 }, ExtArgs["result"]["income"]>
 
 export type IncomeSelectScalar = {
   id?: boolean
   userId?: boolean
-  workShiftId?: boolean
+  rideSesionId?: boolean
   source?: boolean
   paymentMethod?: boolean
   status?: boolean
@@ -810,30 +810,30 @@ export type IncomeSelectScalar = {
   createdAt?: boolean
 }
 
-export type IncomeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "workShiftId" | "source" | "paymentMethod" | "status" | "amount" | "occurredAt" | "createdAt", ExtArgs["result"]["income"]>
+export type IncomeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "rideSesionId" | "source" | "paymentMethod" | "status" | "amount" | "occurredAt" | "createdAt", ExtArgs["result"]["income"]>
 export type IncomeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Income$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Income$rideSesionArgs<ExtArgs>
 }
 export type IncomeIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Income$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Income$rideSesionArgs<ExtArgs>
 }
 export type IncomeIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Income$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Income$rideSesionArgs<ExtArgs>
 }
 
 export type $IncomePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Income"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
-    workShift: Prisma.$WorkShiftPayload<ExtArgs> | null
+    rideSesion: Prisma.$RideSesionPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     userId: string
-    workShiftId: string | null
+    rideSesionId: string | null
     source: $Enums.IncomeSource
     paymentMethod: $Enums.PaymentMethod
     status: $Enums.TransactionStatus
@@ -1235,7 +1235,7 @@ readonly fields: IncomeFieldRefs;
 export interface Prisma__IncomeClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  workShift<T extends Prisma.Income$workShiftArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Income$workShiftArgs<ExtArgs>>): Prisma.Prisma__WorkShiftClient<runtime.Types.Result.GetResult<Prisma.$WorkShiftPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  rideSesion<T extends Prisma.Income$rideSesionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Income$rideSesionArgs<ExtArgs>>): Prisma.Prisma__RideSesionClient<runtime.Types.Result.GetResult<Prisma.$RideSesionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1267,7 +1267,7 @@ export interface Prisma__IncomeClient<T, Null = never, ExtArgs extends runtime.T
 export interface IncomeFieldRefs {
   readonly id: Prisma.FieldRef<"Income", 'String'>
   readonly userId: Prisma.FieldRef<"Income", 'String'>
-  readonly workShiftId: Prisma.FieldRef<"Income", 'String'>
+  readonly rideSesionId: Prisma.FieldRef<"Income", 'String'>
   readonly source: Prisma.FieldRef<"Income", 'IncomeSource'>
   readonly paymentMethod: Prisma.FieldRef<"Income", 'PaymentMethod'>
   readonly status: Prisma.FieldRef<"Income", 'TransactionStatus'>
@@ -1670,22 +1670,22 @@ export type IncomeDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 /**
- * Income.workShift
+ * Income.rideSesion
  */
-export type Income$workShiftArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Income$rideSesionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the WorkShift
+   * Select specific fields to fetch from the RideSesion
    */
-  select?: Prisma.WorkShiftSelect<ExtArgs> | null
+  select?: Prisma.RideSesionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the WorkShift
+   * Omit specific fields from the RideSesion
    */
-  omit?: Prisma.WorkShiftOmit<ExtArgs> | null
+  omit?: Prisma.RideSesionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.WorkShiftInclude<ExtArgs> | null
-  where?: Prisma.WorkShiftWhereInput
+  include?: Prisma.RideSesionInclude<ExtArgs> | null
+  where?: Prisma.RideSesionWhereInput
 }
 
 /**

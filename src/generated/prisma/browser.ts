@@ -23,10 +23,10 @@ export * from './enums.js';
  */
 export type User = Prisma.UserModel
 /**
- * Model WorkShift
+ * Model RideSesion
  * 
  */
-export type WorkShift = Prisma.WorkShiftModel
+export type RideSesion = Prisma.RideSesionModel
 /**
  * Model Income
  * 

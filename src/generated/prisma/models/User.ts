@@ -182,7 +182,7 @@ export type UserWhereInput = {
   password?: Prisma.StringFilter<"User"> | string
   name?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  workShifts?: Prisma.WorkShiftListRelationFilter
+  rideSesion?: Prisma.RideSesionListRelationFilter
   expenses?: Prisma.ExpenseListRelationFilter
   incomes?: Prisma.IncomeListRelationFilter
   goals?: Prisma.GoalListRelationFilter
@@ -194,7 +194,7 @@ export type UserOrderByWithRelationInput = {
   password?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  workShifts?: Prisma.WorkShiftOrderByRelationAggregateInput
+  rideSesion?: Prisma.RideSesionOrderByRelationAggregateInput
   expenses?: Prisma.ExpenseOrderByRelationAggregateInput
   incomes?: Prisma.IncomeOrderByRelationAggregateInput
   goals?: Prisma.GoalOrderByRelationAggregateInput
@@ -209,7 +209,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   password?: Prisma.StringFilter<"User"> | string
   name?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  workShifts?: Prisma.WorkShiftListRelationFilter
+  rideSesion?: Prisma.RideSesionListRelationFilter
   expenses?: Prisma.ExpenseListRelationFilter
   incomes?: Prisma.IncomeListRelationFilter
   goals?: Prisma.GoalListRelationFilter
@@ -243,7 +243,7 @@ export type UserCreateInput = {
   password: string
   name?: string | null
   createdAt?: Date | string
-  workShifts?: Prisma.WorkShiftCreateNestedManyWithoutUserInput
+  rideSesion?: Prisma.RideSesionCreateNestedManyWithoutUserInput
   expenses?: Prisma.ExpenseCreateNestedManyWithoutUserInput
   incomes?: Prisma.IncomeCreateNestedManyWithoutUserInput
   goals?: Prisma.GoalCreateNestedManyWithoutUserInput
@@ -255,7 +255,7 @@ export type UserUncheckedCreateInput = {
   password: string
   name?: string | null
   createdAt?: Date | string
-  workShifts?: Prisma.WorkShiftUncheckedCreateNestedManyWithoutUserInput
+  rideSesion?: Prisma.RideSesionUncheckedCreateNestedManyWithoutUserInput
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutUserInput
   incomes?: Prisma.IncomeUncheckedCreateNestedManyWithoutUserInput
   goals?: Prisma.GoalUncheckedCreateNestedManyWithoutUserInput
@@ -267,7 +267,7 @@ export type UserUpdateInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workShifts?: Prisma.WorkShiftUpdateManyWithoutUserNestedInput
+  rideSesion?: Prisma.RideSesionUpdateManyWithoutUserNestedInput
   expenses?: Prisma.ExpenseUpdateManyWithoutUserNestedInput
   incomes?: Prisma.IncomeUpdateManyWithoutUserNestedInput
   goals?: Prisma.GoalUpdateManyWithoutUserNestedInput
@@ -279,7 +279,7 @@ export type UserUncheckedUpdateInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workShifts?: Prisma.WorkShiftUncheckedUpdateManyWithoutUserNestedInput
+  rideSesion?: Prisma.RideSesionUncheckedUpdateManyWithoutUserNestedInput
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutUserNestedInput
   incomes?: Prisma.IncomeUncheckedUpdateManyWithoutUserNestedInput
   goals?: Prisma.GoalUncheckedUpdateManyWithoutUserNestedInput
@@ -350,18 +350,18 @@ export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
-export type UserCreateNestedOneWithoutWorkShiftsInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutWorkShiftsInput, Prisma.UserUncheckedCreateWithoutWorkShiftsInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutWorkShiftsInput
+export type UserCreateNestedOneWithoutRideSesionInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutRideSesionInput, Prisma.UserUncheckedCreateWithoutRideSesionInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRideSesionInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneRequiredWithoutWorkShiftsNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutWorkShiftsInput, Prisma.UserUncheckedCreateWithoutWorkShiftsInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutWorkShiftsInput
-  upsert?: Prisma.UserUpsertWithoutWorkShiftsInput
+export type UserUpdateOneRequiredWithoutRideSesionNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutRideSesionInput, Prisma.UserUncheckedCreateWithoutRideSesionInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRideSesionInput
+  upsert?: Prisma.UserUpsertWithoutRideSesionInput
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutWorkShiftsInput, Prisma.UserUpdateWithoutWorkShiftsInput>, Prisma.UserUncheckedUpdateWithoutWorkShiftsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutRideSesionInput, Prisma.UserUpdateWithoutRideSesionInput>, Prisma.UserUncheckedUpdateWithoutRideSesionInput>
 }
 
 export type UserCreateNestedOneWithoutIncomesInput = {
@@ -406,7 +406,7 @@ export type UserUpdateOneRequiredWithoutGoalsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutGoalsInput, Prisma.UserUpdateWithoutGoalsInput>, Prisma.UserUncheckedUpdateWithoutGoalsInput>
 }
 
-export type UserCreateWithoutWorkShiftsInput = {
+export type UserCreateWithoutRideSesionInput = {
   id?: string
   email: string
   password: string
@@ -417,7 +417,7 @@ export type UserCreateWithoutWorkShiftsInput = {
   goals?: Prisma.GoalCreateNestedManyWithoutUserInput
 }
 
-export type UserUncheckedCreateWithoutWorkShiftsInput = {
+export type UserUncheckedCreateWithoutRideSesionInput = {
   id?: string
   email: string
   password: string
@@ -428,23 +428,23 @@ export type UserUncheckedCreateWithoutWorkShiftsInput = {
   goals?: Prisma.GoalUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type UserCreateOrConnectWithoutWorkShiftsInput = {
+export type UserCreateOrConnectWithoutRideSesionInput = {
   where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutWorkShiftsInput, Prisma.UserUncheckedCreateWithoutWorkShiftsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutRideSesionInput, Prisma.UserUncheckedCreateWithoutRideSesionInput>
 }
 
-export type UserUpsertWithoutWorkShiftsInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutWorkShiftsInput, Prisma.UserUncheckedUpdateWithoutWorkShiftsInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutWorkShiftsInput, Prisma.UserUncheckedCreateWithoutWorkShiftsInput>
+export type UserUpsertWithoutRideSesionInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutRideSesionInput, Prisma.UserUncheckedUpdateWithoutRideSesionInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutRideSesionInput, Prisma.UserUncheckedCreateWithoutRideSesionInput>
   where?: Prisma.UserWhereInput
 }
 
-export type UserUpdateToOneWithWhereWithoutWorkShiftsInput = {
+export type UserUpdateToOneWithWhereWithoutRideSesionInput = {
   where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutWorkShiftsInput, Prisma.UserUncheckedUpdateWithoutWorkShiftsInput>
+  data: Prisma.XOR<Prisma.UserUpdateWithoutRideSesionInput, Prisma.UserUncheckedUpdateWithoutRideSesionInput>
 }
 
-export type UserUpdateWithoutWorkShiftsInput = {
+export type UserUpdateWithoutRideSesionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
@@ -455,7 +455,7 @@ export type UserUpdateWithoutWorkShiftsInput = {
   goals?: Prisma.GoalUpdateManyWithoutUserNestedInput
 }
 
-export type UserUncheckedUpdateWithoutWorkShiftsInput = {
+export type UserUncheckedUpdateWithoutRideSesionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
@@ -472,7 +472,7 @@ export type UserCreateWithoutIncomesInput = {
   password: string
   name?: string | null
   createdAt?: Date | string
-  workShifts?: Prisma.WorkShiftCreateNestedManyWithoutUserInput
+  rideSesion?: Prisma.RideSesionCreateNestedManyWithoutUserInput
   expenses?: Prisma.ExpenseCreateNestedManyWithoutUserInput
   goals?: Prisma.GoalCreateNestedManyWithoutUserInput
 }
@@ -483,7 +483,7 @@ export type UserUncheckedCreateWithoutIncomesInput = {
   password: string
   name?: string | null
   createdAt?: Date | string
-  workShifts?: Prisma.WorkShiftUncheckedCreateNestedManyWithoutUserInput
+  rideSesion?: Prisma.RideSesionUncheckedCreateNestedManyWithoutUserInput
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutUserInput
   goals?: Prisma.GoalUncheckedCreateNestedManyWithoutUserInput
 }
@@ -510,7 +510,7 @@ export type UserUpdateWithoutIncomesInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workShifts?: Prisma.WorkShiftUpdateManyWithoutUserNestedInput
+  rideSesion?: Prisma.RideSesionUpdateManyWithoutUserNestedInput
   expenses?: Prisma.ExpenseUpdateManyWithoutUserNestedInput
   goals?: Prisma.GoalUpdateManyWithoutUserNestedInput
 }
@@ -521,7 +521,7 @@ export type UserUncheckedUpdateWithoutIncomesInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workShifts?: Prisma.WorkShiftUncheckedUpdateManyWithoutUserNestedInput
+  rideSesion?: Prisma.RideSesionUncheckedUpdateManyWithoutUserNestedInput
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutUserNestedInput
   goals?: Prisma.GoalUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -532,7 +532,7 @@ export type UserCreateWithoutExpensesInput = {
   password: string
   name?: string | null
   createdAt?: Date | string
-  workShifts?: Prisma.WorkShiftCreateNestedManyWithoutUserInput
+  rideSesion?: Prisma.RideSesionCreateNestedManyWithoutUserInput
   incomes?: Prisma.IncomeCreateNestedManyWithoutUserInput
   goals?: Prisma.GoalCreateNestedManyWithoutUserInput
 }
@@ -543,7 +543,7 @@ export type UserUncheckedCreateWithoutExpensesInput = {
   password: string
   name?: string | null
   createdAt?: Date | string
-  workShifts?: Prisma.WorkShiftUncheckedCreateNestedManyWithoutUserInput
+  rideSesion?: Prisma.RideSesionUncheckedCreateNestedManyWithoutUserInput
   incomes?: Prisma.IncomeUncheckedCreateNestedManyWithoutUserInput
   goals?: Prisma.GoalUncheckedCreateNestedManyWithoutUserInput
 }
@@ -570,7 +570,7 @@ export type UserUpdateWithoutExpensesInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workShifts?: Prisma.WorkShiftUpdateManyWithoutUserNestedInput
+  rideSesion?: Prisma.RideSesionUpdateManyWithoutUserNestedInput
   incomes?: Prisma.IncomeUpdateManyWithoutUserNestedInput
   goals?: Prisma.GoalUpdateManyWithoutUserNestedInput
 }
@@ -581,7 +581,7 @@ export type UserUncheckedUpdateWithoutExpensesInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workShifts?: Prisma.WorkShiftUncheckedUpdateManyWithoutUserNestedInput
+  rideSesion?: Prisma.RideSesionUncheckedUpdateManyWithoutUserNestedInput
   incomes?: Prisma.IncomeUncheckedUpdateManyWithoutUserNestedInput
   goals?: Prisma.GoalUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -592,7 +592,7 @@ export type UserCreateWithoutGoalsInput = {
   password: string
   name?: string | null
   createdAt?: Date | string
-  workShifts?: Prisma.WorkShiftCreateNestedManyWithoutUserInput
+  rideSesion?: Prisma.RideSesionCreateNestedManyWithoutUserInput
   expenses?: Prisma.ExpenseCreateNestedManyWithoutUserInput
   incomes?: Prisma.IncomeCreateNestedManyWithoutUserInput
 }
@@ -603,7 +603,7 @@ export type UserUncheckedCreateWithoutGoalsInput = {
   password: string
   name?: string | null
   createdAt?: Date | string
-  workShifts?: Prisma.WorkShiftUncheckedCreateNestedManyWithoutUserInput
+  rideSesion?: Prisma.RideSesionUncheckedCreateNestedManyWithoutUserInput
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutUserInput
   incomes?: Prisma.IncomeUncheckedCreateNestedManyWithoutUserInput
 }
@@ -630,7 +630,7 @@ export type UserUpdateWithoutGoalsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workShifts?: Prisma.WorkShiftUpdateManyWithoutUserNestedInput
+  rideSesion?: Prisma.RideSesionUpdateManyWithoutUserNestedInput
   expenses?: Prisma.ExpenseUpdateManyWithoutUserNestedInput
   incomes?: Prisma.IncomeUpdateManyWithoutUserNestedInput
 }
@@ -641,7 +641,7 @@ export type UserUncheckedUpdateWithoutGoalsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workShifts?: Prisma.WorkShiftUncheckedUpdateManyWithoutUserNestedInput
+  rideSesion?: Prisma.RideSesionUncheckedUpdateManyWithoutUserNestedInput
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutUserNestedInput
   incomes?: Prisma.IncomeUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -652,14 +652,14 @@ export type UserUncheckedUpdateWithoutGoalsInput = {
  */
 
 export type UserCountOutputType = {
-  workShifts: number
+  rideSesion: number
   expenses: number
   incomes: number
   goals: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  workShifts?: boolean | UserCountOutputTypeCountWorkShiftsArgs
+  rideSesion?: boolean | UserCountOutputTypeCountRideSesionArgs
   expenses?: boolean | UserCountOutputTypeCountExpensesArgs
   incomes?: boolean | UserCountOutputTypeCountIncomesArgs
   goals?: boolean | UserCountOutputTypeCountGoalsArgs
@@ -678,8 +678,8 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountWorkShiftsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.WorkShiftWhereInput
+export type UserCountOutputTypeCountRideSesionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RideSesionWhereInput
 }
 
 /**
@@ -710,7 +710,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   password?: boolean
   name?: boolean
   createdAt?: boolean
-  workShifts?: boolean | Prisma.User$workShiftsArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.User$rideSesionArgs<ExtArgs>
   expenses?: boolean | Prisma.User$expensesArgs<ExtArgs>
   incomes?: boolean | Prisma.User$incomesArgs<ExtArgs>
   goals?: boolean | Prisma.User$goalsArgs<ExtArgs>
@@ -743,7 +743,7 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "name" | "createdAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  workShifts?: boolean | Prisma.User$workShiftsArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.User$rideSesionArgs<ExtArgs>
   expenses?: boolean | Prisma.User$expensesArgs<ExtArgs>
   incomes?: boolean | Prisma.User$incomesArgs<ExtArgs>
   goals?: boolean | Prisma.User$goalsArgs<ExtArgs>
@@ -755,7 +755,7 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    workShifts: Prisma.$WorkShiftPayload<ExtArgs>[]
+    rideSesion: Prisma.$RideSesionPayload<ExtArgs>[]
     expenses: Prisma.$ExpensePayload<ExtArgs>[]
     incomes: Prisma.$IncomePayload<ExtArgs>[]
     goals: Prisma.$GoalPayload<ExtArgs>[]
@@ -1160,7 +1160,7 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  workShifts<T extends Prisma.User$workShiftsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$workShiftsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkShiftPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  rideSesion<T extends Prisma.User$rideSesionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$rideSesionArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RideSesionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   expenses<T extends Prisma.User$expensesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$expensesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   incomes<T extends Prisma.User$incomesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$incomesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$IncomePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   goals<T extends Prisma.User$goalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$goalsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GoalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -1586,27 +1586,27 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * User.workShifts
+ * User.rideSesion
  */
-export type User$workShiftsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$rideSesionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the WorkShift
+   * Select specific fields to fetch from the RideSesion
    */
-  select?: Prisma.WorkShiftSelect<ExtArgs> | null
+  select?: Prisma.RideSesionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the WorkShift
+   * Omit specific fields from the RideSesion
    */
-  omit?: Prisma.WorkShiftOmit<ExtArgs> | null
+  omit?: Prisma.RideSesionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.WorkShiftInclude<ExtArgs> | null
-  where?: Prisma.WorkShiftWhereInput
-  orderBy?: Prisma.WorkShiftOrderByWithRelationInput | Prisma.WorkShiftOrderByWithRelationInput[]
-  cursor?: Prisma.WorkShiftWhereUniqueInput
+  include?: Prisma.RideSesionInclude<ExtArgs> | null
+  where?: Prisma.RideSesionWhereInput
+  orderBy?: Prisma.RideSesionOrderByWithRelationInput | Prisma.RideSesionOrderByWithRelationInput[]
+  cursor?: Prisma.RideSesionWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.WorkShiftScalarFieldEnum | Prisma.WorkShiftScalarFieldEnum[]
+  distinct?: Prisma.RideSesionScalarFieldEnum | Prisma.RideSesionScalarFieldEnum[]
 }
 
 /**

@@ -1,2 +1,2 @@
-export * from './health.service';
-export * from './services.module';
+export * from './health.service.js';
+export * from './services.module.js';

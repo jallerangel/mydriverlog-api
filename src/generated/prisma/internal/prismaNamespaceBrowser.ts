@@ -52,7 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   User: 'User',
-  WorkShift: 'WorkShift',
+  RideSesion: 'RideSesion',
   Income: 'Income',
   Expense: 'Expense',
   Goal: 'Goal'
@@ -85,7 +85,7 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const WorkShiftScalarFieldEnum = {
+export const RideSesionScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   status: 'status',
@@ -96,13 +96,13 @@ export const WorkShiftScalarFieldEnum = {
   createdAt: 'createdAt'
 } as const
 
-export type WorkShiftScalarFieldEnum = (typeof WorkShiftScalarFieldEnum)[keyof typeof WorkShiftScalarFieldEnum]
+export type RideSesionScalarFieldEnum = (typeof RideSesionScalarFieldEnum)[keyof typeof RideSesionScalarFieldEnum]
 
 
 export const IncomeScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  workShiftId: 'workShiftId',
+  rideSesionId: 'rideSesionId',
   source: 'source',
   paymentMethod: 'paymentMethod',
   status: 'status',
@@ -117,7 +117,7 @@ export type IncomeScalarFieldEnum = (typeof IncomeScalarFieldEnum)[keyof typeof 
 export const ExpenseScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  workShiftId: 'workShiftId',
+  rideSesionId: 'rideSesionId',
   category: 'category',
   paymentMethod: 'paymentMethod',
   description: 'description',

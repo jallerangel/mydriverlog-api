@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '../generated/prisma/client.js';
 @Injectable()
 export class TestService {
   private readonly logger = new Logger(TestService.name);
@@ -8,10 +8,7 @@ export class TestService {
   constructor(private readonly prismaClient: PrismaClient) {}
 
   async runExample(): Promise<any> {
-    const ids = ['1', '2'];
-    const result = await this.prismaClient.user.findMany({
-      where: { id: { in: ids } },
-    });
+    const result = await this.prismaClient.user.findMany();
 
     this.logger.log(`runExample fetched ${result.length} users`);
     return result;

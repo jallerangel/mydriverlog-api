@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client"
-  output   = "./generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -35,7 +35,7 @@ enum PaymentMethod {
   OTHER
 }
 
-enum ShiftStatus {
+enum RideSesionStatus {
   ACTIVE
   COMPLETED
 }
@@ -63,16 +63,16 @@ model User {
   name      String?
   createdAt DateTime @default(now())
 
-  workShifts WorkShift[]
+  rideSesion RideSesion[]
   expenses   Expense[]
   incomes    Income[]
   goals      Goal[]
 }
 
-model WorkShift {
+model RideSesion {
   id        String      @id @default(uuid())
   userId    String
-  status    ShiftStatus @default(ACTIVE)
+  status    RideSesionStatus @default(ACTIVE)
   startedAt DateTime    @default(now())
   endedAt   DateTime?
   
@@ -89,7 +89,7 @@ model WorkShift {
 model Income {
   id          String        @id @default(uuid())
   userId      String
-  workShiftId String?
+  rideSesionId String?
   
   source        IncomeSource  
   paymentMethod PaymentMethod 
@@ -101,13 +101,13 @@ model Income {
   createdAt   DateTime      @default(now())
 
   user      User       @relation(fields: [userId], references: [id])
-  workShift WorkShift? @relation(fields: [workShiftId], references: [id])
+  rideSesion RideSesion? @relation(fields: [rideSesionId], references: [id])
 }
 
 model Expense {
   id          String          @id @default(uuid())
   userId      String
-  workShiftId String?
+  rideSesionId String?
   category    ExpenseCategory
   paymentMethod PaymentMethod?
   
@@ -118,7 +118,7 @@ model Expense {
   createdAt     DateTime        @default(now())
 
   user      User       @relation(fields: [userId], references: [id])
-  workShift WorkShift? @relation(fields: [workShiftId], references: [id])
+  rideSesion RideSesion? @relation(fields: [rideSesionId], references: [id])
 }
 
 model Goal {

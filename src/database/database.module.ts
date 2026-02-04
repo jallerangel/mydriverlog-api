@@ -1,31 +1,11 @@
-import { Module, Global, Logger } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { PrismaClient } from '@prisma/client';
-import { DatabaseService } from './database.service';
+import { Module, Global } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { DatabaseService } from './database.service.js';
 
 @Global()
 @Module({
   imports: [ConfigModule],
-  providers: [
-    {
-      provide: 'PRISMA_CLIENT',
-      useFactory: async (configService: ConfigService) => {
-        const logger = new Logger('DatabaseModule');
-        const prisma = new PrismaClient();
-        try {
-          await prisma.$connect();
-          logger.log('Prisma client connected');
-        } catch (err) {
-          logger.error('Prisma connection failed', err as any);
-          throw err;
-        }
-
-        return prisma;
-      },
-      inject: [ConfigService],
-    },
-    DatabaseService,
-  ],
-  exports: ['PRISMA_CLIENT', DatabaseService],
+  providers: [DatabaseService],
+  exports: [DatabaseService],
 })
 export class DatabaseModule {}

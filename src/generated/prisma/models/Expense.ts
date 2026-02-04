@@ -37,7 +37,7 @@ export type ExpenseSumAggregateOutputType = {
 export type ExpenseMinAggregateOutputType = {
   id: string | null
   userId: string | null
-  workShiftId: string | null
+  rideSesionId: string | null
   category: $Enums.ExpenseCategory | null
   paymentMethod: $Enums.PaymentMethod | null
   description: string | null
@@ -50,7 +50,7 @@ export type ExpenseMinAggregateOutputType = {
 export type ExpenseMaxAggregateOutputType = {
   id: string | null
   userId: string | null
-  workShiftId: string | null
+  rideSesionId: string | null
   category: $Enums.ExpenseCategory | null
   paymentMethod: $Enums.PaymentMethod | null
   description: string | null
@@ -63,7 +63,7 @@ export type ExpenseMaxAggregateOutputType = {
 export type ExpenseCountAggregateOutputType = {
   id: number
   userId: number
-  workShiftId: number
+  rideSesionId: number
   category: number
   paymentMethod: number
   description: number
@@ -86,7 +86,7 @@ export type ExpenseSumAggregateInputType = {
 export type ExpenseMinAggregateInputType = {
   id?: true
   userId?: true
-  workShiftId?: true
+  rideSesionId?: true
   category?: true
   paymentMethod?: true
   description?: true
@@ -99,7 +99,7 @@ export type ExpenseMinAggregateInputType = {
 export type ExpenseMaxAggregateInputType = {
   id?: true
   userId?: true
-  workShiftId?: true
+  rideSesionId?: true
   category?: true
   paymentMethod?: true
   description?: true
@@ -112,7 +112,7 @@ export type ExpenseMaxAggregateInputType = {
 export type ExpenseCountAggregateInputType = {
   id?: true
   userId?: true
-  workShiftId?: true
+  rideSesionId?: true
   category?: true
   paymentMethod?: true
   description?: true
@@ -212,7 +212,7 @@ export type ExpenseGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type ExpenseGroupByOutputType = {
   id: string
   userId: string
-  workShiftId: string | null
+  rideSesionId: string | null
   category: $Enums.ExpenseCategory
   paymentMethod: $Enums.PaymentMethod | null
   description: string | null
@@ -248,7 +248,7 @@ export type ExpenseWhereInput = {
   NOT?: Prisma.ExpenseWhereInput | Prisma.ExpenseWhereInput[]
   id?: Prisma.StringFilter<"Expense"> | string
   userId?: Prisma.StringFilter<"Expense"> | string
-  workShiftId?: Prisma.StringNullableFilter<"Expense"> | string | null
+  rideSesionId?: Prisma.StringNullableFilter<"Expense"> | string | null
   category?: Prisma.EnumExpenseCategoryFilter<"Expense"> | $Enums.ExpenseCategory
   paymentMethod?: Prisma.EnumPaymentMethodNullableFilter<"Expense"> | $Enums.PaymentMethod | null
   description?: Prisma.StringNullableFilter<"Expense"> | string | null
@@ -257,13 +257,13 @@ export type ExpenseWhereInput = {
   occurredAt?: Prisma.DateTimeFilter<"Expense"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Expense"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  workShift?: Prisma.XOR<Prisma.WorkShiftNullableScalarRelationFilter, Prisma.WorkShiftWhereInput> | null
+  rideSesion?: Prisma.XOR<Prisma.RideSesionNullableScalarRelationFilter, Prisma.RideSesionWhereInput> | null
 }
 
 export type ExpenseOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  workShiftId?: Prisma.SortOrderInput | Prisma.SortOrder
+  rideSesionId?: Prisma.SortOrderInput | Prisma.SortOrder
   category?: Prisma.SortOrder
   paymentMethod?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -272,7 +272,7 @@ export type ExpenseOrderByWithRelationInput = {
   occurredAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
-  workShift?: Prisma.WorkShiftOrderByWithRelationInput
+  rideSesion?: Prisma.RideSesionOrderByWithRelationInput
 }
 
 export type ExpenseWhereUniqueInput = Prisma.AtLeast<{
@@ -281,7 +281,7 @@ export type ExpenseWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ExpenseWhereInput[]
   NOT?: Prisma.ExpenseWhereInput | Prisma.ExpenseWhereInput[]
   userId?: Prisma.StringFilter<"Expense"> | string
-  workShiftId?: Prisma.StringNullableFilter<"Expense"> | string | null
+  rideSesionId?: Prisma.StringNullableFilter<"Expense"> | string | null
   category?: Prisma.EnumExpenseCategoryFilter<"Expense"> | $Enums.ExpenseCategory
   paymentMethod?: Prisma.EnumPaymentMethodNullableFilter<"Expense"> | $Enums.PaymentMethod | null
   description?: Prisma.StringNullableFilter<"Expense"> | string | null
@@ -290,13 +290,13 @@ export type ExpenseWhereUniqueInput = Prisma.AtLeast<{
   occurredAt?: Prisma.DateTimeFilter<"Expense"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"Expense"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  workShift?: Prisma.XOR<Prisma.WorkShiftNullableScalarRelationFilter, Prisma.WorkShiftWhereInput> | null
+  rideSesion?: Prisma.XOR<Prisma.RideSesionNullableScalarRelationFilter, Prisma.RideSesionWhereInput> | null
 }, "id">
 
 export type ExpenseOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  workShiftId?: Prisma.SortOrderInput | Prisma.SortOrder
+  rideSesionId?: Prisma.SortOrderInput | Prisma.SortOrder
   category?: Prisma.SortOrder
   paymentMethod?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -317,7 +317,7 @@ export type ExpenseScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ExpenseScalarWhereWithAggregatesInput | Prisma.ExpenseScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Expense"> | string
   userId?: Prisma.StringWithAggregatesFilter<"Expense"> | string
-  workShiftId?: Prisma.StringNullableWithAggregatesFilter<"Expense"> | string | null
+  rideSesionId?: Prisma.StringNullableWithAggregatesFilter<"Expense"> | string | null
   category?: Prisma.EnumExpenseCategoryWithAggregatesFilter<"Expense"> | $Enums.ExpenseCategory
   paymentMethod?: Prisma.EnumPaymentMethodNullableWithAggregatesFilter<"Expense"> | $Enums.PaymentMethod | null
   description?: Prisma.StringNullableWithAggregatesFilter<"Expense"> | string | null
@@ -337,13 +337,13 @@ export type ExpenseCreateInput = {
   occurredAt?: Date | string
   createdAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutExpensesInput
-  workShift?: Prisma.WorkShiftCreateNestedOneWithoutExpensesInput
+  rideSesion?: Prisma.RideSesionCreateNestedOneWithoutExpensesInput
 }
 
 export type ExpenseUncheckedCreateInput = {
   id?: string
   userId: string
-  workShiftId?: string | null
+  rideSesionId?: string | null
   category: $Enums.ExpenseCategory
   paymentMethod?: $Enums.PaymentMethod | null
   description?: string | null
@@ -363,13 +363,13 @@ export type ExpenseUpdateInput = {
   occurredAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutExpensesNestedInput
-  workShift?: Prisma.WorkShiftUpdateOneWithoutExpensesNestedInput
+  rideSesion?: Prisma.RideSesionUpdateOneWithoutExpensesNestedInput
 }
 
 export type ExpenseUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  workShiftId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rideSesionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumExpenseCategoryFieldUpdateOperationsInput | $Enums.ExpenseCategory
   paymentMethod?: Prisma.NullableEnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -382,7 +382,7 @@ export type ExpenseUncheckedUpdateInput = {
 export type ExpenseCreateManyInput = {
   id?: string
   userId: string
-  workShiftId?: string | null
+  rideSesionId?: string | null
   category: $Enums.ExpenseCategory
   paymentMethod?: $Enums.PaymentMethod | null
   description?: string | null
@@ -406,7 +406,7 @@ export type ExpenseUpdateManyMutationInput = {
 export type ExpenseUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  workShiftId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rideSesionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumExpenseCategoryFieldUpdateOperationsInput | $Enums.ExpenseCategory
   paymentMethod?: Prisma.NullableEnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -429,7 +429,7 @@ export type ExpenseOrderByRelationAggregateInput = {
 export type ExpenseCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  workShiftId?: Prisma.SortOrder
+  rideSesionId?: Prisma.SortOrder
   category?: Prisma.SortOrder
   paymentMethod?: Prisma.SortOrder
   description?: Prisma.SortOrder
@@ -446,7 +446,7 @@ export type ExpenseAvgOrderByAggregateInput = {
 export type ExpenseMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  workShiftId?: Prisma.SortOrder
+  rideSesionId?: Prisma.SortOrder
   category?: Prisma.SortOrder
   paymentMethod?: Prisma.SortOrder
   description?: Prisma.SortOrder
@@ -459,7 +459,7 @@ export type ExpenseMaxOrderByAggregateInput = {
 export type ExpenseMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
-  workShiftId?: Prisma.SortOrder
+  rideSesionId?: Prisma.SortOrder
   category?: Prisma.SortOrder
   paymentMethod?: Prisma.SortOrder
   description?: Prisma.SortOrder
@@ -515,45 +515,45 @@ export type ExpenseUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.ExpenseScalarWhereInput | Prisma.ExpenseScalarWhereInput[]
 }
 
-export type ExpenseCreateNestedManyWithoutWorkShiftInput = {
-  create?: Prisma.XOR<Prisma.ExpenseCreateWithoutWorkShiftInput, Prisma.ExpenseUncheckedCreateWithoutWorkShiftInput> | Prisma.ExpenseCreateWithoutWorkShiftInput[] | Prisma.ExpenseUncheckedCreateWithoutWorkShiftInput[]
-  connectOrCreate?: Prisma.ExpenseCreateOrConnectWithoutWorkShiftInput | Prisma.ExpenseCreateOrConnectWithoutWorkShiftInput[]
-  createMany?: Prisma.ExpenseCreateManyWorkShiftInputEnvelope
+export type ExpenseCreateNestedManyWithoutRideSesionInput = {
+  create?: Prisma.XOR<Prisma.ExpenseCreateWithoutRideSesionInput, Prisma.ExpenseUncheckedCreateWithoutRideSesionInput> | Prisma.ExpenseCreateWithoutRideSesionInput[] | Prisma.ExpenseUncheckedCreateWithoutRideSesionInput[]
+  connectOrCreate?: Prisma.ExpenseCreateOrConnectWithoutRideSesionInput | Prisma.ExpenseCreateOrConnectWithoutRideSesionInput[]
+  createMany?: Prisma.ExpenseCreateManyRideSesionInputEnvelope
   connect?: Prisma.ExpenseWhereUniqueInput | Prisma.ExpenseWhereUniqueInput[]
 }
 
-export type ExpenseUncheckedCreateNestedManyWithoutWorkShiftInput = {
-  create?: Prisma.XOR<Prisma.ExpenseCreateWithoutWorkShiftInput, Prisma.ExpenseUncheckedCreateWithoutWorkShiftInput> | Prisma.ExpenseCreateWithoutWorkShiftInput[] | Prisma.ExpenseUncheckedCreateWithoutWorkShiftInput[]
-  connectOrCreate?: Prisma.ExpenseCreateOrConnectWithoutWorkShiftInput | Prisma.ExpenseCreateOrConnectWithoutWorkShiftInput[]
-  createMany?: Prisma.ExpenseCreateManyWorkShiftInputEnvelope
+export type ExpenseUncheckedCreateNestedManyWithoutRideSesionInput = {
+  create?: Prisma.XOR<Prisma.ExpenseCreateWithoutRideSesionInput, Prisma.ExpenseUncheckedCreateWithoutRideSesionInput> | Prisma.ExpenseCreateWithoutRideSesionInput[] | Prisma.ExpenseUncheckedCreateWithoutRideSesionInput[]
+  connectOrCreate?: Prisma.ExpenseCreateOrConnectWithoutRideSesionInput | Prisma.ExpenseCreateOrConnectWithoutRideSesionInput[]
+  createMany?: Prisma.ExpenseCreateManyRideSesionInputEnvelope
   connect?: Prisma.ExpenseWhereUniqueInput | Prisma.ExpenseWhereUniqueInput[]
 }
 
-export type ExpenseUpdateManyWithoutWorkShiftNestedInput = {
-  create?: Prisma.XOR<Prisma.ExpenseCreateWithoutWorkShiftInput, Prisma.ExpenseUncheckedCreateWithoutWorkShiftInput> | Prisma.ExpenseCreateWithoutWorkShiftInput[] | Prisma.ExpenseUncheckedCreateWithoutWorkShiftInput[]
-  connectOrCreate?: Prisma.ExpenseCreateOrConnectWithoutWorkShiftInput | Prisma.ExpenseCreateOrConnectWithoutWorkShiftInput[]
-  upsert?: Prisma.ExpenseUpsertWithWhereUniqueWithoutWorkShiftInput | Prisma.ExpenseUpsertWithWhereUniqueWithoutWorkShiftInput[]
-  createMany?: Prisma.ExpenseCreateManyWorkShiftInputEnvelope
+export type ExpenseUpdateManyWithoutRideSesionNestedInput = {
+  create?: Prisma.XOR<Prisma.ExpenseCreateWithoutRideSesionInput, Prisma.ExpenseUncheckedCreateWithoutRideSesionInput> | Prisma.ExpenseCreateWithoutRideSesionInput[] | Prisma.ExpenseUncheckedCreateWithoutRideSesionInput[]
+  connectOrCreate?: Prisma.ExpenseCreateOrConnectWithoutRideSesionInput | Prisma.ExpenseCreateOrConnectWithoutRideSesionInput[]
+  upsert?: Prisma.ExpenseUpsertWithWhereUniqueWithoutRideSesionInput | Prisma.ExpenseUpsertWithWhereUniqueWithoutRideSesionInput[]
+  createMany?: Prisma.ExpenseCreateManyRideSesionInputEnvelope
   set?: Prisma.ExpenseWhereUniqueInput | Prisma.ExpenseWhereUniqueInput[]
   disconnect?: Prisma.ExpenseWhereUniqueInput | Prisma.ExpenseWhereUniqueInput[]
   delete?: Prisma.ExpenseWhereUniqueInput | Prisma.ExpenseWhereUniqueInput[]
   connect?: Prisma.ExpenseWhereUniqueInput | Prisma.ExpenseWhereUniqueInput[]
-  update?: Prisma.ExpenseUpdateWithWhereUniqueWithoutWorkShiftInput | Prisma.ExpenseUpdateWithWhereUniqueWithoutWorkShiftInput[]
-  updateMany?: Prisma.ExpenseUpdateManyWithWhereWithoutWorkShiftInput | Prisma.ExpenseUpdateManyWithWhereWithoutWorkShiftInput[]
+  update?: Prisma.ExpenseUpdateWithWhereUniqueWithoutRideSesionInput | Prisma.ExpenseUpdateWithWhereUniqueWithoutRideSesionInput[]
+  updateMany?: Prisma.ExpenseUpdateManyWithWhereWithoutRideSesionInput | Prisma.ExpenseUpdateManyWithWhereWithoutRideSesionInput[]
   deleteMany?: Prisma.ExpenseScalarWhereInput | Prisma.ExpenseScalarWhereInput[]
 }
 
-export type ExpenseUncheckedUpdateManyWithoutWorkShiftNestedInput = {
-  create?: Prisma.XOR<Prisma.ExpenseCreateWithoutWorkShiftInput, Prisma.ExpenseUncheckedCreateWithoutWorkShiftInput> | Prisma.ExpenseCreateWithoutWorkShiftInput[] | Prisma.ExpenseUncheckedCreateWithoutWorkShiftInput[]
-  connectOrCreate?: Prisma.ExpenseCreateOrConnectWithoutWorkShiftInput | Prisma.ExpenseCreateOrConnectWithoutWorkShiftInput[]
-  upsert?: Prisma.ExpenseUpsertWithWhereUniqueWithoutWorkShiftInput | Prisma.ExpenseUpsertWithWhereUniqueWithoutWorkShiftInput[]
-  createMany?: Prisma.ExpenseCreateManyWorkShiftInputEnvelope
+export type ExpenseUncheckedUpdateManyWithoutRideSesionNestedInput = {
+  create?: Prisma.XOR<Prisma.ExpenseCreateWithoutRideSesionInput, Prisma.ExpenseUncheckedCreateWithoutRideSesionInput> | Prisma.ExpenseCreateWithoutRideSesionInput[] | Prisma.ExpenseUncheckedCreateWithoutRideSesionInput[]
+  connectOrCreate?: Prisma.ExpenseCreateOrConnectWithoutRideSesionInput | Prisma.ExpenseCreateOrConnectWithoutRideSesionInput[]
+  upsert?: Prisma.ExpenseUpsertWithWhereUniqueWithoutRideSesionInput | Prisma.ExpenseUpsertWithWhereUniqueWithoutRideSesionInput[]
+  createMany?: Prisma.ExpenseCreateManyRideSesionInputEnvelope
   set?: Prisma.ExpenseWhereUniqueInput | Prisma.ExpenseWhereUniqueInput[]
   disconnect?: Prisma.ExpenseWhereUniqueInput | Prisma.ExpenseWhereUniqueInput[]
   delete?: Prisma.ExpenseWhereUniqueInput | Prisma.ExpenseWhereUniqueInput[]
   connect?: Prisma.ExpenseWhereUniqueInput | Prisma.ExpenseWhereUniqueInput[]
-  update?: Prisma.ExpenseUpdateWithWhereUniqueWithoutWorkShiftInput | Prisma.ExpenseUpdateWithWhereUniqueWithoutWorkShiftInput[]
-  updateMany?: Prisma.ExpenseUpdateManyWithWhereWithoutWorkShiftInput | Prisma.ExpenseUpdateManyWithWhereWithoutWorkShiftInput[]
+  update?: Prisma.ExpenseUpdateWithWhereUniqueWithoutRideSesionInput | Prisma.ExpenseUpdateWithWhereUniqueWithoutRideSesionInput[]
+  updateMany?: Prisma.ExpenseUpdateManyWithWhereWithoutRideSesionInput | Prisma.ExpenseUpdateManyWithWhereWithoutRideSesionInput[]
   deleteMany?: Prisma.ExpenseScalarWhereInput | Prisma.ExpenseScalarWhereInput[]
 }
 
@@ -578,12 +578,12 @@ export type ExpenseCreateWithoutUserInput = {
   isOperational?: boolean
   occurredAt?: Date | string
   createdAt?: Date | string
-  workShift?: Prisma.WorkShiftCreateNestedOneWithoutExpensesInput
+  rideSesion?: Prisma.RideSesionCreateNestedOneWithoutExpensesInput
 }
 
 export type ExpenseUncheckedCreateWithoutUserInput = {
   id?: string
-  workShiftId?: string | null
+  rideSesionId?: string | null
   category: $Enums.ExpenseCategory
   paymentMethod?: $Enums.PaymentMethod | null
   description?: string | null
@@ -625,7 +625,7 @@ export type ExpenseScalarWhereInput = {
   NOT?: Prisma.ExpenseScalarWhereInput | Prisma.ExpenseScalarWhereInput[]
   id?: Prisma.StringFilter<"Expense"> | string
   userId?: Prisma.StringFilter<"Expense"> | string
-  workShiftId?: Prisma.StringNullableFilter<"Expense"> | string | null
+  rideSesionId?: Prisma.StringNullableFilter<"Expense"> | string | null
   category?: Prisma.EnumExpenseCategoryFilter<"Expense"> | $Enums.ExpenseCategory
   paymentMethod?: Prisma.EnumPaymentMethodNullableFilter<"Expense"> | $Enums.PaymentMethod | null
   description?: Prisma.StringNullableFilter<"Expense"> | string | null
@@ -635,7 +635,7 @@ export type ExpenseScalarWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Expense"> | Date | string
 }
 
-export type ExpenseCreateWithoutWorkShiftInput = {
+export type ExpenseCreateWithoutRideSesionInput = {
   id?: string
   category: $Enums.ExpenseCategory
   paymentMethod?: $Enums.PaymentMethod | null
@@ -647,7 +647,7 @@ export type ExpenseCreateWithoutWorkShiftInput = {
   user: Prisma.UserCreateNestedOneWithoutExpensesInput
 }
 
-export type ExpenseUncheckedCreateWithoutWorkShiftInput = {
+export type ExpenseUncheckedCreateWithoutRideSesionInput = {
   id?: string
   userId: string
   category: $Enums.ExpenseCategory
@@ -659,35 +659,35 @@ export type ExpenseUncheckedCreateWithoutWorkShiftInput = {
   createdAt?: Date | string
 }
 
-export type ExpenseCreateOrConnectWithoutWorkShiftInput = {
+export type ExpenseCreateOrConnectWithoutRideSesionInput = {
   where: Prisma.ExpenseWhereUniqueInput
-  create: Prisma.XOR<Prisma.ExpenseCreateWithoutWorkShiftInput, Prisma.ExpenseUncheckedCreateWithoutWorkShiftInput>
+  create: Prisma.XOR<Prisma.ExpenseCreateWithoutRideSesionInput, Prisma.ExpenseUncheckedCreateWithoutRideSesionInput>
 }
 
-export type ExpenseCreateManyWorkShiftInputEnvelope = {
-  data: Prisma.ExpenseCreateManyWorkShiftInput | Prisma.ExpenseCreateManyWorkShiftInput[]
+export type ExpenseCreateManyRideSesionInputEnvelope = {
+  data: Prisma.ExpenseCreateManyRideSesionInput | Prisma.ExpenseCreateManyRideSesionInput[]
   skipDuplicates?: boolean
 }
 
-export type ExpenseUpsertWithWhereUniqueWithoutWorkShiftInput = {
+export type ExpenseUpsertWithWhereUniqueWithoutRideSesionInput = {
   where: Prisma.ExpenseWhereUniqueInput
-  update: Prisma.XOR<Prisma.ExpenseUpdateWithoutWorkShiftInput, Prisma.ExpenseUncheckedUpdateWithoutWorkShiftInput>
-  create: Prisma.XOR<Prisma.ExpenseCreateWithoutWorkShiftInput, Prisma.ExpenseUncheckedCreateWithoutWorkShiftInput>
+  update: Prisma.XOR<Prisma.ExpenseUpdateWithoutRideSesionInput, Prisma.ExpenseUncheckedUpdateWithoutRideSesionInput>
+  create: Prisma.XOR<Prisma.ExpenseCreateWithoutRideSesionInput, Prisma.ExpenseUncheckedCreateWithoutRideSesionInput>
 }
 
-export type ExpenseUpdateWithWhereUniqueWithoutWorkShiftInput = {
+export type ExpenseUpdateWithWhereUniqueWithoutRideSesionInput = {
   where: Prisma.ExpenseWhereUniqueInput
-  data: Prisma.XOR<Prisma.ExpenseUpdateWithoutWorkShiftInput, Prisma.ExpenseUncheckedUpdateWithoutWorkShiftInput>
+  data: Prisma.XOR<Prisma.ExpenseUpdateWithoutRideSesionInput, Prisma.ExpenseUncheckedUpdateWithoutRideSesionInput>
 }
 
-export type ExpenseUpdateManyWithWhereWithoutWorkShiftInput = {
+export type ExpenseUpdateManyWithWhereWithoutRideSesionInput = {
   where: Prisma.ExpenseScalarWhereInput
-  data: Prisma.XOR<Prisma.ExpenseUpdateManyMutationInput, Prisma.ExpenseUncheckedUpdateManyWithoutWorkShiftInput>
+  data: Prisma.XOR<Prisma.ExpenseUpdateManyMutationInput, Prisma.ExpenseUncheckedUpdateManyWithoutRideSesionInput>
 }
 
 export type ExpenseCreateManyUserInput = {
   id?: string
-  workShiftId?: string | null
+  rideSesionId?: string | null
   category: $Enums.ExpenseCategory
   paymentMethod?: $Enums.PaymentMethod | null
   description?: string | null
@@ -706,12 +706,12 @@ export type ExpenseUpdateWithoutUserInput = {
   isOperational?: Prisma.BoolFieldUpdateOperationsInput | boolean
   occurredAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workShift?: Prisma.WorkShiftUpdateOneWithoutExpensesNestedInput
+  rideSesion?: Prisma.RideSesionUpdateOneWithoutExpensesNestedInput
 }
 
 export type ExpenseUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workShiftId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rideSesionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumExpenseCategoryFieldUpdateOperationsInput | $Enums.ExpenseCategory
   paymentMethod?: Prisma.NullableEnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -723,7 +723,7 @@ export type ExpenseUncheckedUpdateWithoutUserInput = {
 
 export type ExpenseUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workShiftId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rideSesionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumExpenseCategoryFieldUpdateOperationsInput | $Enums.ExpenseCategory
   paymentMethod?: Prisma.NullableEnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -733,7 +733,7 @@ export type ExpenseUncheckedUpdateManyWithoutUserInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ExpenseCreateManyWorkShiftInput = {
+export type ExpenseCreateManyRideSesionInput = {
   id?: string
   userId: string
   category: $Enums.ExpenseCategory
@@ -745,7 +745,7 @@ export type ExpenseCreateManyWorkShiftInput = {
   createdAt?: Date | string
 }
 
-export type ExpenseUpdateWithoutWorkShiftInput = {
+export type ExpenseUpdateWithoutRideSesionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   category?: Prisma.EnumExpenseCategoryFieldUpdateOperationsInput | $Enums.ExpenseCategory
   paymentMethod?: Prisma.NullableEnumPaymentMethodFieldUpdateOperationsInput | $Enums.PaymentMethod | null
@@ -757,7 +757,7 @@ export type ExpenseUpdateWithoutWorkShiftInput = {
   user?: Prisma.UserUpdateOneRequiredWithoutExpensesNestedInput
 }
 
-export type ExpenseUncheckedUpdateWithoutWorkShiftInput = {
+export type ExpenseUncheckedUpdateWithoutRideSesionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   category?: Prisma.EnumExpenseCategoryFieldUpdateOperationsInput | $Enums.ExpenseCategory
@@ -769,7 +769,7 @@ export type ExpenseUncheckedUpdateWithoutWorkShiftInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ExpenseUncheckedUpdateManyWithoutWorkShiftInput = {
+export type ExpenseUncheckedUpdateManyWithoutRideSesionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   category?: Prisma.EnumExpenseCategoryFieldUpdateOperationsInput | $Enums.ExpenseCategory
@@ -786,7 +786,7 @@ export type ExpenseUncheckedUpdateManyWithoutWorkShiftInput = {
 export type ExpenseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  workShiftId?: boolean
+  rideSesionId?: boolean
   category?: boolean
   paymentMethod?: boolean
   description?: boolean
@@ -795,13 +795,13 @@ export type ExpenseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   occurredAt?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Expense$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Expense$rideSesionArgs<ExtArgs>
 }, ExtArgs["result"]["expense"]>
 
 export type ExpenseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  workShiftId?: boolean
+  rideSesionId?: boolean
   category?: boolean
   paymentMethod?: boolean
   description?: boolean
@@ -810,13 +810,13 @@ export type ExpenseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   occurredAt?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Expense$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Expense$rideSesionArgs<ExtArgs>
 }, ExtArgs["result"]["expense"]>
 
 export type ExpenseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
-  workShiftId?: boolean
+  rideSesionId?: boolean
   category?: boolean
   paymentMethod?: boolean
   description?: boolean
@@ -825,13 +825,13 @@ export type ExpenseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   occurredAt?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Expense$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Expense$rideSesionArgs<ExtArgs>
 }, ExtArgs["result"]["expense"]>
 
 export type ExpenseSelectScalar = {
   id?: boolean
   userId?: boolean
-  workShiftId?: boolean
+  rideSesionId?: boolean
   category?: boolean
   paymentMethod?: boolean
   description?: boolean
@@ -841,30 +841,30 @@ export type ExpenseSelectScalar = {
   createdAt?: boolean
 }
 
-export type ExpenseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "workShiftId" | "category" | "paymentMethod" | "description" | "amount" | "isOperational" | "occurredAt" | "createdAt", ExtArgs["result"]["expense"]>
+export type ExpenseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "rideSesionId" | "category" | "paymentMethod" | "description" | "amount" | "isOperational" | "occurredAt" | "createdAt", ExtArgs["result"]["expense"]>
 export type ExpenseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Expense$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Expense$rideSesionArgs<ExtArgs>
 }
 export type ExpenseIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Expense$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Expense$rideSesionArgs<ExtArgs>
 }
 export type ExpenseIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  workShift?: boolean | Prisma.Expense$workShiftArgs<ExtArgs>
+  rideSesion?: boolean | Prisma.Expense$rideSesionArgs<ExtArgs>
 }
 
 export type $ExpensePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Expense"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
-    workShift: Prisma.$WorkShiftPayload<ExtArgs> | null
+    rideSesion: Prisma.$RideSesionPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     userId: string
-    workShiftId: string | null
+    rideSesionId: string | null
     category: $Enums.ExpenseCategory
     paymentMethod: $Enums.PaymentMethod | null
     description: string | null
@@ -1267,7 +1267,7 @@ readonly fields: ExpenseFieldRefs;
 export interface Prisma__ExpenseClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  workShift<T extends Prisma.Expense$workShiftArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Expense$workShiftArgs<ExtArgs>>): Prisma.Prisma__WorkShiftClient<runtime.Types.Result.GetResult<Prisma.$WorkShiftPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  rideSesion<T extends Prisma.Expense$rideSesionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Expense$rideSesionArgs<ExtArgs>>): Prisma.Prisma__RideSesionClient<runtime.Types.Result.GetResult<Prisma.$RideSesionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1299,7 +1299,7 @@ export interface Prisma__ExpenseClient<T, Null = never, ExtArgs extends runtime.
 export interface ExpenseFieldRefs {
   readonly id: Prisma.FieldRef<"Expense", 'String'>
   readonly userId: Prisma.FieldRef<"Expense", 'String'>
-  readonly workShiftId: Prisma.FieldRef<"Expense", 'String'>
+  readonly rideSesionId: Prisma.FieldRef<"Expense", 'String'>
   readonly category: Prisma.FieldRef<"Expense", 'ExpenseCategory'>
   readonly paymentMethod: Prisma.FieldRef<"Expense", 'PaymentMethod'>
   readonly description: Prisma.FieldRef<"Expense", 'String'>
@@ -1703,22 +1703,22 @@ export type ExpenseDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
- * Expense.workShift
+ * Expense.rideSesion
  */
-export type Expense$workShiftArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Expense$rideSesionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the WorkShift
+   * Select specific fields to fetch from the RideSesion
    */
-  select?: Prisma.WorkShiftSelect<ExtArgs> | null
+  select?: Prisma.RideSesionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the WorkShift
+   * Omit specific fields from the RideSesion
    */
-  omit?: Prisma.WorkShiftOmit<ExtArgs> | null
+  omit?: Prisma.RideSesionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.WorkShiftInclude<ExtArgs> | null
-  where?: Prisma.WorkShiftWhereInput
+  include?: Prisma.RideSesionInclude<ExtArgs> | null
+  where?: Prisma.RideSesionWhereInput
 }
 
 /**

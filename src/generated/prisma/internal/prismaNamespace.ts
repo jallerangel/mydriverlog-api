@@ -385,7 +385,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   User: 'User',
-  WorkShift: 'WorkShift',
+  RideSesion: 'RideSesion',
   Income: 'Income',
   Expense: 'Expense',
   Goal: 'Goal'
@@ -404,7 +404,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "workShift" | "income" | "expense" | "goal"
+    modelProps: "user" | "rideSesion" | "income" | "expense" | "goal"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -482,77 +482,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    WorkShift: {
-      payload: Prisma.$WorkShiftPayload<ExtArgs>
-      fields: Prisma.WorkShiftFieldRefs
+    RideSesion: {
+      payload: Prisma.$RideSesionPayload<ExtArgs>
+      fields: Prisma.RideSesionFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.WorkShiftFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload> | null
+          args: Prisma.RideSesionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.WorkShiftFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload>
+          args: Prisma.RideSesionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload>
         }
         findFirst: {
-          args: Prisma.WorkShiftFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload> | null
+          args: Prisma.RideSesionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.WorkShiftFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload>
+          args: Prisma.RideSesionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload>
         }
         findMany: {
-          args: Prisma.WorkShiftFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload>[]
+          args: Prisma.RideSesionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload>[]
         }
         create: {
-          args: Prisma.WorkShiftCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload>
+          args: Prisma.RideSesionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload>
         }
         createMany: {
-          args: Prisma.WorkShiftCreateManyArgs<ExtArgs>
+          args: Prisma.RideSesionCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.WorkShiftCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload>[]
+          args: Prisma.RideSesionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload>[]
         }
         delete: {
-          args: Prisma.WorkShiftDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload>
+          args: Prisma.RideSesionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload>
         }
         update: {
-          args: Prisma.WorkShiftUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload>
+          args: Prisma.RideSesionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload>
         }
         deleteMany: {
-          args: Prisma.WorkShiftDeleteManyArgs<ExtArgs>
+          args: Prisma.RideSesionDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.WorkShiftUpdateManyArgs<ExtArgs>
+          args: Prisma.RideSesionUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.WorkShiftUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload>[]
+          args: Prisma.RideSesionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload>[]
         }
         upsert: {
-          args: Prisma.WorkShiftUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkShiftPayload>
+          args: Prisma.RideSesionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RideSesionPayload>
         }
         aggregate: {
-          args: Prisma.WorkShiftAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateWorkShift>
+          args: Prisma.RideSesionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRideSesion>
         }
         groupBy: {
-          args: Prisma.WorkShiftGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.WorkShiftGroupByOutputType>[]
+          args: Prisma.RideSesionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RideSesionGroupByOutputType>[]
         }
         count: {
-          args: Prisma.WorkShiftCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.WorkShiftCountAggregateOutputType> | number
+          args: Prisma.RideSesionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RideSesionCountAggregateOutputType> | number
         }
       }
     }
@@ -828,7 +828,7 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const WorkShiftScalarFieldEnum = {
+export const RideSesionScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   status: 'status',
@@ -839,13 +839,13 @@ export const WorkShiftScalarFieldEnum = {
   createdAt: 'createdAt'
 } as const
 
-export type WorkShiftScalarFieldEnum = (typeof WorkShiftScalarFieldEnum)[keyof typeof WorkShiftScalarFieldEnum]
+export type RideSesionScalarFieldEnum = (typeof RideSesionScalarFieldEnum)[keyof typeof RideSesionScalarFieldEnum]
 
 
 export const IncomeScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  workShiftId: 'workShiftId',
+  rideSesionId: 'rideSesionId',
   source: 'source',
   paymentMethod: 'paymentMethod',
   status: 'status',
@@ -860,7 +860,7 @@ export type IncomeScalarFieldEnum = (typeof IncomeScalarFieldEnum)[keyof typeof 
 export const ExpenseScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  workShiftId: 'workShiftId',
+  rideSesionId: 'rideSesionId',
   category: 'category',
   paymentMethod: 'paymentMethod',
   description: 'description',
@@ -945,16 +945,16 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
 
 
 /**
- * Reference to a field of type 'ShiftStatus'
+ * Reference to a field of type 'RideSesionStatus'
  */
-export type EnumShiftStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ShiftStatus'>
+export type EnumRideSesionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RideSesionStatus'>
     
 
 
 /**
- * Reference to a field of type 'ShiftStatus[]'
+ * Reference to a field of type 'RideSesionStatus[]'
  */
-export type ListEnumShiftStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ShiftStatus[]'>
+export type ListEnumRideSesionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RideSesionStatus[]'>
     
 
 
@@ -1158,7 +1158,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
-  workShift?: Prisma.WorkShiftOmit
+  rideSesion?: Prisma.RideSesionOmit
   income?: Prisma.IncomeOmit
   expense?: Prisma.ExpenseOmit
   goal?: Prisma.GoalOmit

@@ -7,9 +7,9 @@ import {
   Version,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
-import { HealthService, HealthStatus } from '../services/health.service';
-import { HealthStatusDto } from '../common/dto/health-status.dto';
-import { TestService } from '../services/test.service';
+import { HealthService, HealthStatus } from '../services/health.service.js';
+import { HealthStatusDto } from '../common/dto/health-status.dto.js';
+import { TestService } from '../services/test.service.js';
 
 /**
  * Health Check Controller

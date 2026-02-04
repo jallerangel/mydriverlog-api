@@ -42,12 +42,12 @@ export const PaymentMethod = {
 export type PaymentMethod = (typeof PaymentMethod)[keyof typeof PaymentMethod]
 
 
-export const ShiftStatus = {
+export const RideSesionStatus = {
   ACTIVE: 'ACTIVE',
   COMPLETED: 'COMPLETED'
 } as const
 
-export type ShiftStatus = (typeof ShiftStatus)[keyof typeof ShiftStatus]
+export type RideSesionStatus = (typeof RideSesionStatus)[keyof typeof RideSesionStatus]
 
 
 export const TransactionStatus = {

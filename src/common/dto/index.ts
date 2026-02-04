@@ -1,1 +1,1 @@
-export * from './health-status.dto';
+export * from './health-status.dto.js';

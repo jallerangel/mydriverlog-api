@@ -1,5 +1,5 @@
-import { Injectable, Logger, Inject } from '@nestjs/common';
-import { DatabaseService } from 'src/database/database.service';
+import { Injectable, Logger } from '@nestjs/common';
+import { DatabaseService } from 'src/database/database.service.js';
 
 export interface HealthStatus {
   status: 'healthy' | 'unhealthy' | 'degraded';
