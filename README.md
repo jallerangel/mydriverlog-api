@@ -96,7 +96,7 @@ The system is built around the **RideSession** entity to provide high-level anal
 | --- | --- | --- |
 | `POST` | `/ridesessions/start` | Open a new working session |
 | `PATCH` | `/ridesessions/end` | Close active session & calculate totals |
-| `GET` | `/ridesessions/active` | Get current active shift details |
+| `GET` | `/ridesessions/active` | Get current active session details |
 
 ### 💸 Financials
 
@@ -113,12 +113,12 @@ The system is built around the **RideSession** entity to provide high-level anal
 ```text
 src/
 ├── auth/           # JWT Strategy, Login, Register
-├── ridesessions/    # Logic for opening/closing shifts
+├── ridesessions/   # Logic for opening/closing shifts
 ├── incomes/        # Income management & event ingestion
 ├── expenses/       # Expense tracking
 ├── goals/          # Financial goals & priorities
-├── prisma/         # Database Service & Schema
-└── common/         # Guards, Decorators, Filters
+├── database/       # Database Service(Prisma) & Schema
+└── common/         # Guards, Decorators, Filters, DTOs
 
 ```
 
