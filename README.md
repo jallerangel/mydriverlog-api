@@ -4,8 +4,8 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-# 🏍️ MyMotoFinances API
-### *The Financial Intelligence Brain for Gig-Economy Riders*
+# 🏍️ MyDriverLog API
+### *The Financial Intelligence Brain for Gig-Economy Drivers*
 
 <p align="center">
   <img src="https://img.shields.io/badge/status-active-success.svg" alt="Status" />
@@ -20,7 +20,7 @@
 
 ## 📖 Overview
 
-**MyMotoFinances** is a specialized financial ecosystem designed for motorcycle taxi drivers (Uber, DiDi, InDrive). This API serves as the core orchestrator, solving the problem of fragmented income by unifying multiple ride-sharing platforms into a single, automated financial dashboard.
+**MyDriverLog** is a specialized financial ecosystem designed for drivers (Uber, DiDi, InDrive). This API serves as the core orchestrator, solving the problem of fragmented income by unifying multiple ride-sharing platforms into a single, automated financial dashboard.
 
 ### The Problem
 Drivers struggle to track net profit due to:
@@ -31,7 +31,7 @@ Drivers struggle to track net profit due to:
 ### The Solution
 A **Hybrid Ingestion Architecture**:
 -   **Automated:** Ingests events from a native Android Listener (No manual typing).
--   **Strategic:** Groups income into "Ride Sessions" to measure real hourly performance.
+-   **Strategic:** Groups income into "Work Shifts" to measure real hourly performance.
 -   **Goal-Oriented:** Automatically allocates funds to priority debts.
 
 ---
@@ -71,10 +71,10 @@ graph LR
 
 ## 🗄️ Database Design (Conceptual)
 
-The system is built around the **RideSession** entity to provide high-level analytics:
+The system is built around the **WorkShifts** entity to provide high-level analytics:
 
 * **Users:** Handles identity and authentication.
-* **RideSessions:** A time-bound session (e.g., "Monday Morning Shift").
+* **WorkShifts:** A time-bound session (e.g., "Monday Morning Shift").
 * **Incomes:** Individual earnings (Source: Uber, DiDi, Manual | Method: Nequi, Cash).
 * **Expenses:** Operational costs linked to shifts or users.
 * **Goals:** Financial targets with priority-based allocation logic.
@@ -90,19 +90,19 @@ The system is built around the **RideSession** entity to provide high-level anal
 | `POST` | `/auth/register` | Create a new account |
 | `POST` | `/auth/login` | Obtain JWT Access Token |
 
-### ⏱️ Ride Sessions (Turnos)
+### ⏱️ Work Shifts (Turnos)
 
 | Method | Endpoint | Description |
 | --- | --- | --- |
-| `POST` | `/ridesessions/start` | Open a new working session |
-| `PATCH` | `/ridesessions/end` | Close active session & calculate totals |
-| `GET` | `/ridesessions/active` | Get current active session details |
+| `POST` | `/workshift/start` | Open a new working session |
+| `PATCH` | `/workshift/end` | Close active session & calculate totals |
+| `GET` | `/workshift/active` | Get current active session details |
 
 ### 💸 Financials
 
 | Method | Endpoint | Description |
 | --- | --- | --- |
-| `POST` | `/incomes` | Register ride (Manual or Automated) |
+| `POST` | `/incomes` | Register drive (Manual or Automated) |
 | `POST` | `/expenses` | Track fuel, food or maintenance |
 | `GET` | `/summary/today` | Real-time dashboard (Net profit / Goals) |
 
@@ -113,7 +113,7 @@ The system is built around the **RideSession** entity to provide high-level anal
 ```text
 src/
 ├── auth/           # JWT Strategy, Login, Register
-├── ridesessions/   # Logic for opening/closing shifts
+├── workshift/   # Logic for opening/closing shifts
 ├── incomes/        # Income management & event ingestion
 ├── expenses/       # Expense tracking
 ├── goals/          # Financial goals & priorities
@@ -135,7 +135,7 @@ src/
 
 1. **Clone & Install:**
 ```bash
-git clone [https://github.com/jallerangel/mymotofinances-api.git](https://github.com/jallerangel/mymotofinances-api.git)
+git clone [https://github.com/jallerangel/mydriverlog-api.git](https://github.com/jallerangel/mydriverlog-api.git)
 cd mymotofinances-api
 npm install
 
